@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.display-6 {
+    text-decoration: none;
+}
+h5 a {
+    text-decoration: none;
+}
+
+.card-link {
+    text-decoration: none;
+}
+.form_control {
+    width: 80%;
+}
