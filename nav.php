@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>    
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.php">Sign Up</a>    
+        </li>
       </ul>
       <form  action="index.php" method="get">
             <div class="input-group" style="max-width:20rem;">
