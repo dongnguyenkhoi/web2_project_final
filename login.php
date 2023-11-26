@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($statement->execute()){
                 // Check if username exists, if yes then verify password
                 if($statement->rowCount() == 1){
-                    print_r("returned 1 user");
+                    
                     if($user = $statement->fetch()){
                         $id = $user["user_id"];
                         $username = $user["user_name"];
