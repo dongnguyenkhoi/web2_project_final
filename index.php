@@ -10,6 +10,8 @@
 ****************/
 
 require('connect.php');
+session_start();
+
 if(isset($_GET['make_search']) && strlen($_GET['make_search']) != 0 ){
     $make_search = $_GET['make_search'];
     $query = "SELECT * FROM cars WHERE make LIKE '%$make_search%' LIMIT 5";
@@ -30,8 +32,8 @@ $statement ->execute();
         </header> 
         <?php include('nav.php') ?>  
         <?php
-            if(isset($_SERVER['PHP_AUTH_USER'])){ ?>
-                <a class="card-link" href="post.php">New Post</a>
+            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+                <a class="btn btn-outline-primary" href="post.php">New Post +</a>
             <?php } ?>
         
         <?php if($statement ->rowCount() == 0):?>
@@ -59,7 +61,7 @@ $statement ->execute();
                         <div class="card-body">
                             <a class="btn btn-primary" href="show.php?id=<?=$row['id']?>">Show <?=$row['title']?></a><br>
                             <?php
-                                if(isset($_SERVER['PHP_AUTH_USER'])){ ?>
+                                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
                                     <a href="edit.php?id=<?=$row['id']?>" class="card-link">edit</a>   
                                 <?php } ?>  
                         </div>
