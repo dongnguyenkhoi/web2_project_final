@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         if($statement = $db->prepare($query)){
             // Set parameters
             $param_username = $username;
-            $param_password = $password; // Creates a password hash
+            $param_password = $password;
             
             // Bind variables to the prepared statement as parameters
             $statement->bindParam(":username", $param_username);
