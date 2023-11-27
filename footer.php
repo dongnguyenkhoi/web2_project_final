@@ -1,6 +1,9 @@
     <!-- footer -->
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
+            <h5>Contact information: </h5>
+            <p>Phone: 204 1479 852</p>
+            <p>Email: winniecardealer@winnipeg.ca</p>
             <span class="text-muted"> Copyright@2023 Winnie Car Dealership</a></span>
         </div>
     </footer>
