@@ -9,7 +9,7 @@
 ****************/
 
 require('connect.php');
-require('authenticate.php');
+//require('authenticate.php');
 
 function file_upload_path($original_filename, $upload_subfolder_name = 'uploads') {
     $current_folder = dirname(__FILE__);
