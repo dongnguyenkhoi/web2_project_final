@@ -29,7 +29,10 @@
           <a class="nav-link" href="logout.php">Logout</a>    
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signup.php">Sign Up</a>    
+        <?php
+            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+                <a class="nav-link" href="signup.php">Sign Up</a>    
+            <?php } ?>
         </li>
       </ul>
       <form  action="index.php" method="get">
