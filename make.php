@@ -1,4 +1,15 @@
-<?php include('nav.php') ?>
+
+<?php 
+/*******w******** 
+    
+    Name: Khoi Dong
+    Date: Nov 15
+    Description: Final Project
+
+****************/
+
+
+include('nav.php') ?>
 <div class="container">
     <header>
         <h1 class="display-6">MAKE SEARCH RESULT</h1>
