@@ -4,7 +4,7 @@
 /*******w******** 
     
     Name: Khoi Dong
-    Date: Sep 25
+    Date: Nov 15
     Description: Final Project
 
 ****************/
@@ -17,7 +17,7 @@ if(isset($_GET['make_search']) && strlen($_GET['make_search']) != 0 ){
     $query = "SELECT * FROM cars WHERE make LIKE '%$make_search%' LIMIT 5";
 }
 else{
-    $query = "SELECT * FROM cars ORDER BY datepost DESC LIMIT 5";
+    $query = "SELECT * FROM cars ORDER BY datepost DESC LIMIT 8";
 }
 
 $statement = $db->prepare($query);
@@ -50,20 +50,21 @@ $statement ->execute();
                             <img class="card-img-top" src="images/no_image.png" />
                         <?php } ?>
                         <div class="card-body">
-                            <h5 class="card-title"><a href="show.php?id=<?=$row['id']?>"><?=$row['title']?></a></h5>
+                            <h5 class="card-title"><a href="show.php?id=<?=$row['id']?>"><?=$row['title']?></a></h5> 
+                            <?php
+                                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+                                <a href="edit.php?id=<?=$row['id']?>" class="card-link">edit</a>   
+                            <?php } ?>  
                             <p class="card-text"><?=substr($row['description'],0,90) ?>...</p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Make: <?=($row['make']) ?></li>
-                            <li class="list-group-item">Price: <?=($row['price']) ?> CAD</li>
+                            <li class="list-group-item">Price: <?=number_format($row['price'], 2) ?> $CAD</li>
                             <li class="list-group-item">Posted at <?=$row['datepost']?> </li>
                         </ul>
                         <div class="card-body">
                             <a class="btn btn-primary" href="show.php?id=<?=$row['id']?>">Show <?=$row['title']?></a><br>
-                            <?php
-                                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
-                                    <a href="edit.php?id=<?=$row['id']?>" class="card-link">edit</a>   
-                                <?php } ?>  
+
                         </div>
                     </div>
                 <?php endwhile ?>
