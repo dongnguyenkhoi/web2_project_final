@@ -78,6 +78,20 @@ include('nav.php') ?>
                 <a href="index.php?make_search=landrover" class="btn btn-primary">Show all Land Rover</a>
             </div>
         </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/genesis_logo.png" class="card-img-top" alt="genesis Logo">
+            <div class="card-body">
+                <h5 class="card-title">Genesis</h5>
+                <a href="index.php?make_search=genesis" class="btn btn-primary">Show all Genesis</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/audi_logo.png" class="card-img-top" alt="audi Logo">
+            <div class="card-body">
+                <h5 class="card-title">Audi</h5>
+                <a href="index.php?make_search=audi" class="btn btn-primary">Show all Audi</a>
+            </div>
+        </div>
     </div>
     <?php include('footer.php') ?>
 </div>
