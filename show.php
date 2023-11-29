@@ -2,12 +2,12 @@
 /*******w******** 
     
     Name: Khoi Dong
-    Date: Sep 25
+    Date:  Nov
     Description: Module 3 Assignment - SCRUD
 
 ****************/
 require('connect.php');
-
+session_start();
 if (isset($_GET['id'])) { // Retrieve quote to be edited, if id GET parameter is in URL.
     // Sanitize the id. Like above but this time from INPUT_GET.
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -31,7 +31,10 @@ if (isset($_GET['id'])) { // Retrieve quote to be edited, if id GET parameter is
         <?php include('nav.php') ?>
             <div class="w-50 p-3">
                 <h1 class="title-link"><?=$cars['title']?></h1>
-                <p>Posted at <?=$cars['datepost']?> <a class="card-link" href="edit.php?id=<?=$cars['id']?>">edit</a></p>
+                <p>Posted at <?=$cars['datepost']?> </p>
+                <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>      
+                        <a class="card-link" href="edit.php?id=<?=$row['id']?>">edit</a>
+                <?php } ?>  
                 <?php if($cars['image']){ ?>
                     <img src="uploads/<?=$cars['image']?>" alt="">
                 <?php } else { ?>
@@ -40,8 +43,8 @@ if (isset($_GET['id'])) { // Retrieve quote to be edited, if id GET parameter is
                 <p>Make: <?=$cars['make']?></p>
                 <p>Model: <?=$cars['model']?></p>
                 <p>Year: <?=$cars['year_made']?></p>
-                <p>Odometer: <?=$cars['odometer']?></p>
-                <p>Price: <?=$cars['price']?> $CAN</p>
+                <p>Odometer: <?=number_format($cars['odometer'])?></p>
+                <p>Price: <?=number_format($cars['price'], 2)?> $CAN</p>
                 <div id="description">Description: <?=$cars['description']?></div><br>
                 <?php else: ?>
                 <p>No car selected. <a href="?id=1">Try this link</a>.</p>
