@@ -1,3 +1,12 @@
+<?php 
+/*******w******** 
+    
+    Name: Khoi Dong
+    Date: Nov 15
+    Description: Final Project
+
+****************/
+?>
     <!-- footer -->
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
