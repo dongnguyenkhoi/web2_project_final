@@ -1,8 +1,9 @@
 <?php
-/*************** 
-    Name: 
-    Date: 
-    Description: 
+/*******w******** 
+    
+    Name: Khoi Dong
+    Date: Nov 15
+    Description: Final Project
 
 ****************/
 require('connect.php');
@@ -19,7 +20,7 @@ $password = $password_err = "";
 $login_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    print_r("server request method is POST");
+    
  
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
@@ -56,8 +57,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $id = $user["user_id"];
                         $username = $user["user_name"];
                         $password = $user["password"];
-                        if($password === $_POST["password"]) {
-                            print_r("password is correct");
+                        print_r($password);
+                        print_r($_POST["password"]);
+                        //if(password_verify($_POST["password"], $password)) {
+                        if($_POST["password"] == $password) {
+                            
                             // Password is correct, so start a new session
                             session_start();
                             
